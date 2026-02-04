@@ -1,1 +1,3 @@
-
+defaults:
+    - method: nk
+    - _self_

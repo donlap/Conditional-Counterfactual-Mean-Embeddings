@@ -1,32 +1,32 @@
 # @package _global_
 
-method: nk
+method: df
 mode: dr
 seed: 1
 verbose: True
 n_folds: 2
 
 model:
-    output_dim: 20000
+    output_dim: 1000
     hidden_dim: [100, 100]
     sigma_init: 1.0
-    lamb: null # not used
+    lamb: 1.0
     learn_sigma: False
 
 propensity_score_model:
     _target_: sklearn.linear_model.LogisticRegression
 
 train:
-    lr_or: 3e-3
-    lr_fi: 1e-4
+    lr_or: 1e-1
+    lr_fi: 1e-2
     batch_size_or: 32
     batch_size_fi: 32
-    epoch_or: 200
+    epoch_or: 100
     epoch_fi: 100
     valid_size_or: 0.2
     valid_size_fi: 0.2
-    patience_or: 100
-    patience_fi: 100
+    patience_or: 10
+    patience_fi: 10
 
 test:
     num_bin: 1000

@@ -1,29 +1,29 @@
 # @package _global_
 
-method: nk
+method: ridge
 mode: dr
 seed: 1
 verbose: True
 n_folds: 2
 
 model:
-    output_dim: 20
-    hidden_dim: [20, 20]
+    output_dim: 100 # not used
+    hidden_dim: [20, 20] # not used
     sigma_init: 2.0
-    lamb: null # not used
-    learn_sigma: False
+    lamb: 20.0
+    learn_sigma: False # not used
 
 propensity_score_model:
     _target_: sklearn.ensemble.RandomForestClassifier
     max_depth: 4
 
-train:
-    lr_or: 4e-2
-    lr_fi: 4e-2
+train: # not used
+    lr_or: 2e-3
+    lr_fi: 1e-3
     batch_size_or: 10000
     batch_size_fi: 10000
-    epoch_or: 16000
-    epoch_fi: 500
+    epoch_or: 1
+    epoch_fi: 1
     valid_size_or: null
     valid_size_fi: null
     patience_or: null

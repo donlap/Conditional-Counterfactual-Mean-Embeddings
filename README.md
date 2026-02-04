@@ -1,6 +1,6 @@
-# Conditional Counterfactual Density Estimation (CCME)
+# Conditional Counterfactual Mean Embeddings (CCME)
 
-Official JAX implementation for doubly robust estimation of conditional counterfactual densities.
+Official JAX implementation for doubly robust estimation of conditional counterfactual densities as described in the paper "Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates".
 
 ## Overview
 

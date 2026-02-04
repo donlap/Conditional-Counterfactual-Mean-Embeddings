@@ -2,6 +2,8 @@
 
 Official JAX implementation for doubly robust estimation of conditional counterfactual densities as described in the paper "Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates".
 
+[Example on IHDP dataset in Colab](https://colab.research.google.com/github/donlap/Conditional-Counterfactual-Mean-Embeddings/blob/main/demo_notebook.ipynb#scrollTo=KdlOuMvejJk5)
+
 ## Overview
 
 This repository provides three practical estimators for conditional counterfactual densities (CCD):

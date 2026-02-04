@@ -9,9 +9,11 @@ This repository provides three practical estimators for conditional counterfactu
 - **Deep Feature (`df`)**: Neural network-based feature map estimator
 - **Neural-Kernel (`nk`)**: Grid-based neural network estimator
 
-Each estimator come with four modes: doubly robust (`dr`), inverse propensity weighting (`ipw`), Plug-In (`pi`) and one-step (`onestep`). $K$-fold cross-fitting is also supported.
+Each estimator come with four modes: Doubly Robust (`dr`), Inverse Propensity Weighting (`ipw`), Plug-In (`pi`) and One-Step (`onestep`). $K$-fold cross-fitting is also supported.
 
----
+Here's a comparison between the Doubly Robust and One-Step modes of the Deep Feature estimator on a bimodal CCD.  
+
+<img src="figures/fig_densities.png" alt="Density Estimation - DR vs One-Step" width="600" />
 
 ## Installation
 
@@ -45,7 +47,6 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
 ```
 
----
 
 ## Quick Start: Interactive Demo
 
@@ -54,8 +55,6 @@ The easiest way to get started is with the Jupyter notebook:
 ```bash
 jupyter notebook demo_notebook.ipynb
 ```
-
----
 
 ## Reproducing Paper Results
 
@@ -74,11 +73,6 @@ python plot_mses.py
 # Output: fig_mses.pdf
 ```
 
-**Results:**
-
-![Convergence Plot - MSE vs Sample Size](figures/fig_mses.pdf)
-
-
 ### 2. Experiment 2: Qualitative Assessment (Density Plots)
 
 Visualizes estimated densities for two covariate profiles across 30 runs.
@@ -94,11 +88,6 @@ python plot_densities.py
 # Output: fig_densities.pdf
 ```
 
-**Results:**
-
-![Density Estimation - DR vs One-Step](figures/fig_densities.pdf)
-
-
 ### 3. Experiment 3: Semi-Synthetic Experiment on Selective Denoising of MNIST data
 
 ```bash
@@ -111,12 +100,6 @@ python experiment_mnist.py
 python plot_mnist.py
 # Output: fig_mnist.pdf
 ```
-
-**Results:**
-
-![MNIST Prototypes - High-Dimensional Outcomes](figures/fig_mnist.svg)
-
----
 
 ## Using the `CCDEstimator` Class
 
@@ -214,17 +197,36 @@ Or override from command line:
 python your_script.py method=df mode=dr train.lr_or=1e-2 train.epoch_or=10000
 ```
 
----
-
 ## Citation
 
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{ponnoprat2024ccme,
-  title={Conditional Counterfactual Mean Embeddings},
-  author={},
+@article{ccme2026,
+  title={Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates},
+  author={Thatchanon Anancharoenkij and Donlapark Ponnoprat},
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2026}
+}
+
+@inproceedings{deepfeature2021,
+    author = {Liyuan Xu and Yutian Chen and Siddarth Srinivasan and Nando de
+              Freitas and Arnaud Doucet and Arthur Gretton},
+    title = {Learning Deep Features in Instrumental Variable Regression},
+    booktitle = {9th International Conference on Learning Representations, {ICLR
+                 } 2021, Virtual Event, Austria, May 3-7, 2021},
+    publisher = {OpenReview.net},
+    year = {2021},
+    url = {https://openreview.net/forum?id=sy4Kg\_ZQmS7},
+}
+
+@inproceedings{neuralkernel2024,
+    author = {Eiki Shimizu and Kenji Fukumizu and Dino Sejdinovic},
+    title = {Neural-Kernel Conditional Mean Embeddings},
+    booktitle = {Forty-first International Conference on Machine Learning, {ICML
+                 } 2024, Vienna, Austria, July 21-27, 2024},
+    publisher = {OpenReview.net},
+    year = {2024},
+    url = {https://openreview.net/forum?id=0wso32h0jc},
 }
 ```

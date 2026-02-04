@@ -122,17 +122,6 @@ def get_indices(cfg_obj, key, default_max):
     return np.array(idx, dtype=int)
 
 
-def _zero_lamb(model):
-    """Return a copy of the model with lamb set to zero (for unregularized validation).
-
-    Models without a ``lamb`` attribute (e.g. NeuralKernelNet) are returned
-    unchanged.
-    """
-    if hasattr(model, "lamb"):
-        return eqx.tree_at(lambda m: m.lamb, model, 0.0)
-    return model
-
-
 def get_components(method_name, mode):
     """Look up the model class, loss functions, and eval function for a method/mode pair.
 
@@ -497,7 +486,7 @@ class CCDEstimator:
 
                     if X_valid_or is not None:
                         val_loss, _ = loss_fn_nuis(
-                            _zero_lamb(model_or), state_or, X_valid_or, Y_valid_or
+                            model_or, state_or, X_valid_or, Y_valid_or
                         )
                         val_loss_value = val_loss.item()
                         postfix_dict["val_loss"] = f"{val_loss_value:.5f}"
@@ -678,7 +667,7 @@ class CCDEstimator:
                         Y_ref_val = Y0_ref[:val_bs]
 
                         val_loss, _ = loss_fn_target(
-                            _zero_lamb(model),
+                            model,
                             state,
                             V_valid_fi,
                             X_valid_fi,

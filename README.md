@@ -208,7 +208,8 @@ If you use this code in your research, please cite:
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2026}
 }
-
+```
+```bibtex
 @inproceedings{deepfeature2021,
     author = {Liyuan Xu and Yutian Chen and Siddarth Srinivasan and Nando de
               Freitas and Arnaud Doucet and Arthur Gretton},
@@ -219,7 +220,8 @@ If you use this code in your research, please cite:
     year = {2021},
     url = {https://openreview.net/forum?id=sy4Kg\_ZQmS7},
 }
-
+```
+```bibtex
 @inproceedings{neuralkernel2024,
     author = {Eiki Shimizu and Kenji Fukumizu and Dino Sejdinovic},
     title = {Neural-Kernel Conditional Mean Embeddings},

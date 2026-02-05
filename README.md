@@ -24,7 +24,7 @@ Here's a comparison between the Doubly Robust and One-Step modes of the Deep Fea
 ```bash
 # Clone the repository
 git clone hhttps://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
-cd ccme
+cd Conditional-Counterfactual-Mean-Embeddings
 
 # Create virtual environment
 python3.10 -m venv venv
@@ -39,7 +39,7 @@ pip install -e .
 ```bash
 # Clone the repository
 git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
-cd ccme
+cd Conditional-Counterfactual-Mean-Embeddings
 
 # Create virtual environment and install dependencies
 uv venv --python 3.10.6

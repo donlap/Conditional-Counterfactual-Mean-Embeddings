@@ -2,7 +2,7 @@
 
 Official JAX implementation for doubly robust estimation of conditional counterfactual densities as described in the paper "Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates".
 
-[Example on IHDP dataset in Colab](https://colab.research.google.com/github/donlap/Conditional-Counterfactual-Mean-Embeddings/blob/main/demo_notebook.ipynb#scrollTo=KdlOuMvejJk5)
+[Example on IHDP dataset in Colab](https://colab.research.google.com/github/donlap/Conditional-Counterfactual-Mean-Embeddings/blob/main/demo_notebook.ipynb)
 
 ## Overview
 
@@ -23,7 +23,7 @@ Here's a comparison between the Doubly Robust and One-Step modes of the Deep Fea
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ccme.git
+git clone hhttps://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd ccme
 
 # Create virtual environment
@@ -36,26 +36,15 @@ pip install -e .
 
 ### Option 2: Using `uv`
 
-[`uv`](https://github.com/astral-sh/uv) is a fast Python package installer and resolver.
-
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ccme.git
+git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd ccme
 
 # Create virtual environment and install dependencies
 uv venv --python 3.10.6
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
-```
-
-
-## Quick Start: Interactive Demo
-
-The easiest way to get started is with the Jupyter notebook:
-
-```bash
-jupyter notebook demo_notebook.ipynb
 ```
 
 ## Reproducing Paper Results
@@ -152,7 +141,7 @@ verbose: True
 n_folds: null     # Cross-fitting folds (null for 50-50 split, >= 2 for K-fold)
 
 model:
-    output_dim: 20              # Number of grid points (nk) or features (df)
+    output_dim: 20           # Number of grid points (nk) or features (df)
     hidden_dim: [20, 20]     # Neural network architecture
     sigma_init: 2.0          # Kernel bandwidth initialization
     lamb: null               # Regularization (null for nk, float for df/ridge)
@@ -169,13 +158,10 @@ train:
     batch_size_fi: 10000     # Batch size for stage 2
     epoch_or: 16000          # Epochs for stage 1
     epoch_fi: 500            # Epochs for stage 2
-    valid_size_or: null      # Validation size for stage 1 (null, int, or fraction)
-    valid_size_fi: null      # Validation size for stage 2 (null, int, or fraction)
-    patience_or: null        # Early stopping patience for stage 1
-    patience_fi: null        # Early stopping patience for stage 2
-
-test:
-    num_bin: 1000
+    valid_size_or: 0.2       # Validation size for stage 1 (null, int, or fraction)
+    valid_size_fi: 0.2       # Validation size for stage 2 (null, int, or fraction)
+    patience_or: 10.         # Early stopping patience for stage 1
+    patience_fi: 10.         # Early stopping patience for stage 2
 ```
 
 **Use with Hydra:**

@@ -15,9 +15,7 @@ Each estimator come with four modes: Doubly Robust (`dr`), Inverse Propensity We
 
 Here's a comparison between the Doubly Robust and One-Step modes of the Deep Feature estimator on a bimodal CCD.  
 
-<p align="center">
 <img src="figures/fig_densities.png" alt="Density Estimation - DR vs One-Step" width="600" />
-</p>
 
 ## Installation
 

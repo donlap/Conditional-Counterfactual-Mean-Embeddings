@@ -190,11 +190,14 @@ python your_script.py method=df mode=dr train.lr_or=1e-2 train.epoch_or=10000
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{ccme2026,
-  title={Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates},
-  author={Thatchanon Anancharoenkij and Donlapark Ponnoprat},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2026}
+@misc{ccme2026,
+    title={Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates}, 
+    author={Thatchanon Anancharoenkij and Donlapark Ponnoprat},
+    year={2026},
+    eprint={2602.04736},
+    archivePrefix={arXiv},
+    primaryClass={stat.ML},
+    url={https://arxiv.org/abs/2602.04736}, 
 }
 ```
 ```bibtex

@@ -22,74 +22,24 @@ Here's a comparison between the Doubly Robust and One-Step modes of the Deep Fea
 ### Option 1: Using `pip`
 
 ```bash
-# Clone the repository
 git clone hhttps://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd Conditional-Counterfactual-Mean-Embeddings
 
-# Create virtual environment
 python3.10 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
 pip install -e .
 ```
 
 ### Option 2: Using `uv`
 
 ```bash
-# Clone the repository
 git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd Conditional-Counterfactual-Mean-Embeddings
 
-# Create virtual environment and install dependencies
 uv venv --python 3.10.6
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
-```
-
-## Reproducing Paper Results
-
-The paper presents three main experiments:
-
-### 1. Experiment 1: Robustness Analysis
-
-```bash
-# Run robustness experiment for all methods and modes
-python experiment_robustness.py
-```
-
-**Generate the plot:**
-```bash
-python plot_mses.py
-# Output: fig_mses.pdf
-```
-
-### 2. Experiment 2: Qualitative Assessment (Density Plots)
-
-Visualizes estimated densities for two covariate profiles across 30 runs.
-
-```bash
-# Run qualitative experiment for all methods
-python experiment_densities.py
-```
-
-**Generate the density plot:**
-```bash
-python plot_densities.py
-# Output: fig_densities.pdf
-```
-
-### 3. Experiment 3: Semi-Synthetic Experiment on Selective Denoising of MNIST data
-
-```bash
-# Run MNIST experiment
-python experiment_mnist.py
-```
-
-**Generate the MNIST plot:**
-```bash
-python plot_mnist.py
-# Output: fig_mnist.pdf
 ```
 
 ## Using the `CCDEstimator` Class
@@ -183,6 +133,48 @@ if __name__ == "__main__":
 Or override from command line:
 ```bash
 python your_script.py method=df mode=dr train.lr_or=1e-2 train.epoch_or=10000
+```
+
+## Reproducing Paper Results
+
+The paper presents three main experiments:
+
+### 1. Experiment 1: Robustness Analysis
+
+```bash
+python experiment_robustness.py
+```
+
+**Generate the plot:**
+```bash
+python plot_mses.py
+# Output: fig_mses.pdf
+```
+
+### 2. Experiment 2: Qualitative Assessment (Density Plots)
+
+Visualizes estimated densities for two covariate profiles across 30 runs.
+
+```bash
+python experiment_densities.py
+```
+
+**Generate the density plot:**
+```bash
+python plot_densities.py
+# Output: fig_densities.pdf
+```
+
+### 3. Experiment 3: Semi-Synthetic Experiment on Selective Denoising of MNIST data
+
+```bash
+python experiment_mnist.py
+```
+
+**Generate the MNIST plot:**
+```bash
+python plot_mnist.py
+# Output: fig_mnist.pdf
 ```
 
 ## Citation

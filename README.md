@@ -76,9 +76,9 @@ pdf_est = estimator.predict(V_eval=V_test, Y_grid=Y_grid)
 # pdf_est: (1, 1000) - density values at each Y_grid point
 ```
 
-### Using Configuration Files
+### Making a Configuration File
 
-The recommended way to use `CCDEstimator` is through Hydra configuration files.
+The recommended way to use `CCDEstimator` is through [Hydra](https://github.com/facebookresearch/hydra) configuration files.
 
 **Example: Custom configuration file `my_config.yaml`**
 

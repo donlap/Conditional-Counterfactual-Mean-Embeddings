@@ -1,4 +1,4 @@
-"""Publication-quality MSE convergence plots.
+"""Generate MSE convergence plots for the robustness experiment.
 
 Reads the CSV produced by :mod:`experiment_robustness` and renders a
 3x3 ``seaborn.FacetGrid`` (scenarios x methods) showing MSE vs sample

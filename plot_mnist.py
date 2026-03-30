@@ -1,7 +1,7 @@
-"""Publication-quality MNIST prototype comparison figure.
+"""Generate a figure for the MNIST experiment.
 
 Loads the ``.npz`` file produced by :mod:`experiment_mnist` and
-arranges the highest-density prototype images in a 3x10 grid
+arranges the images with highest densities conditional on the digit in a 3x10 grid
 (Oracle / DR / One-Step x digits 0--9).
 """
 

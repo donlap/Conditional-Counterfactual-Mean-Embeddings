@@ -1,6 +1,8 @@
 # Conditional Counterfactual Mean Embeddings (CCME)
 
-Official JAX implementation for doubly robust estimation of conditional counterfactual densities as described in the paper "Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates".
+Official JAX implementation for doubly robust estimation of conditional counterfactual densities from the following paper: 
+
+> Anancharoenkij & Ponnoprat (2026). "Conditional Counterfactual Mean Embeddings: Doubly Robust Estimation and Learning Rates" [[arXiv link](https://arxiv.org/abs/2602.04736)].
 
 [Example on IHDP dataset in Colab](https://colab.research.google.com/github/donlap/Conditional-Counterfactual-Mean-Embeddings/blob/main/demo_notebook.ipynb)
 

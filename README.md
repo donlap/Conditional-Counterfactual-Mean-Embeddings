@@ -24,7 +24,7 @@ Here's a comparison between the Doubly Robust and One-Step modes of the Deep Fea
 ### Option 1: Using `pip`
 
 ```bash
-git clone hhttps://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
+git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd Conditional-Counterfactual-Mean-Embeddings
 
 python3.10 -m venv venv

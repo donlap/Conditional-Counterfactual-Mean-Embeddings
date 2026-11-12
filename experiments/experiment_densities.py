@@ -8,7 +8,7 @@ figures.
 
 Usage::
 
-    python demo.py
+    python experiments/experiment_densities.py
 """
 
 import numpy as np
@@ -78,7 +78,7 @@ def run_experiment(cfg: DictConfig) -> None:
 
 def main() -> None:
     """Run repeated estimation across all method/mode combinations."""
-    with initialize(config_path="configs/simulation", version_base=None):
+    with initialize(config_path="../configs/simulation", version_base=None):
         for method, mode in product(METHODS, MODES):
             cfg = compose(config_name="config", overrides=[f"method={method}", f"mode={mode}"])
             run_experiment(cfg)

@@ -13,7 +13,7 @@ saved to ``mnist_experiment_results.npz``.
 
 Usage::
 
-    python experiment_mnist.py method=nk
+    python experiments/experiment_mnist.py method=nk
 """
 
 import hydra
@@ -163,7 +163,7 @@ def get_best_images(estimator, Y_clean):
     return np.array(best_images)
 
 
-@hydra.main(config_name="config", version_base=None, config_path="configs/mnist")
+@hydra.main(config_name="config", version_base=None, config_path="../configs/mnist")
 def run_mnist_experiment(cfg: DictConfig) -> None:
     """Run the full MNIST denoising experiment.
 

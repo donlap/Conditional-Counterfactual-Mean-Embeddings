@@ -27,7 +27,7 @@ Here's a comparison between the Doubly Robust and One-Step modes of the Deep Fea
 git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd Conditional-Counterfactual-Mean-Embeddings
 
-python3.10 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 pip install -e .
@@ -39,9 +39,17 @@ pip install -e .
 git clone https://github.com/donlap/Conditional-Counterfactual-Mean-Embeddings.git
 cd Conditional-Counterfactual-Mean-Embeddings
 
-uv venv --python 3.10.6
+uv venv --python 3.12.12
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
+```
+
+### GPU support
+
+Both options install the CPU version of JAX. To run on an NVIDIA GPU with CUDA 12, install the CUDA build of JAX afterwards:
+
+```bash
+pip install -U "jax[cuda12]"  # with uv: uv pip install -U "jax[cuda12]"
 ```
 
 ## Using the `CCDEstimator` Class
@@ -139,17 +147,17 @@ python your_script.py method=df mode=dr train.lr_or=1e-2 train.epoch_or=10000
 
 ## Reproducing Paper Results
 
-The paper presents three main experiments:
+The scripts for the experiments of the paper are in the `experiments` folder. Run every command in this section from the repository root, where the scripts save their results and figures.
 
 ### 1. Experiment 1: Robustness Analysis
 
 ```bash
-python experiment_robustness.py
+python experiments/experiment_robustness.py
 ```
 
 **Generate the plot:**
 ```bash
-python plot_mses.py
+python experiments/plot_mses.py
 # Output: fig_mses.pdf
 ```
 
@@ -158,26 +166,63 @@ python plot_mses.py
 Visualizes estimated densities for two covariate profiles across 30 runs.
 
 ```bash
-python experiment_densities.py
+python experiments/experiment_densities.py
 ```
 
 **Generate the density plot:**
 ```bash
-python plot_densities.py
+python experiments/plot_densities.py
 # Output: fig_densities.pdf
 ```
 
 ### 3. Experiment 3: Semi-Synthetic Experiment on Selective Denoising of MNIST data
 
 ```bash
-python experiment_mnist.py
+python experiments/experiment_mnist.py
 ```
 
 **Generate the MNIST plot:**
 ```bash
-python plot_mnist.py
+python experiments/plot_mnist.py
 # Output: fig_mnist.pdf
 ```
+
+### 4. Downstream Causal Tasks
+
+In Tasks 1 and 3, we estimate conditional value-at-risk (CVaR) treatment effects and learn risk-sensitive policies.
+
+```bash
+python experiments/experiment_cvar_policy.py
+```
+
+**Generate the plots:**
+```bash
+python experiments/plot_cvar_policy.py
+# Output: fig_benchmark_est.pdf and fig_benchmark_policy.pdf
+```
+
+In Task 2, we run the conditional two-sample tests. The script prints the table of rejection rates in LaTeX.
+
+```bash
+python experiments/experiment_two_sample_test.py
+```
+
+On a 10-core laptop CPU, Tasks 1 and 3 take about 5 minutes. Each scenario of Task 2 takes about 16 minutes. To save time, run the four scenarios of Task 2 in parallel, one per terminal:
+
+```bash
+python experiments/experiment_two_sample_test.py --scenarios 1
+python experiments/experiment_two_sample_test.py --scenarios 2
+python experiments/experiment_two_sample_test.py --scenarios 3
+python experiments/experiment_two_sample_test.py --scenarios 4
+```
+
+The run that finishes last prints the table. To print the table again from the saved results without running any scenario:
+
+```bash
+python experiments/experiment_two_sample_test.py --scenarios
+```
+
+These scripts reproduce the numbers of the paper exactly on a CPU with Python 3.12.12, jax 0.12.0.1, numpy 2.5.4, scipy 1.18.1, scikit-learn 1.9.1, matplotlib 3.11.2, equinox 0.13.8, optax 0.2.8 and hydra-core 1.3.8, with LaTeX installed for the figures. Other versions or a GPU can give slightly different numbers.
 
 ## Citation
 

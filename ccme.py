@@ -542,7 +542,8 @@ class CCDEstimator:
             pi_target = jnp.array(
                 pi_model.predict_proba(np.array(X1_prop))[:, 1]
             )
-            pi_target = jnp.clip(pi_target, 0.1, 0.9)
+            pi_clip = getattr(self.cfg, "pi_clip", 0.1)
+            pi_target = jnp.clip(pi_target, pi_clip, 1 - pi_clip)
 
             if self.cfg.model.learn_sigma:
                 sigma_init_val = jax.nn.softplus(model_or.sig_param)
